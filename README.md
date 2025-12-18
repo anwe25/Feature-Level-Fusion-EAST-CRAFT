@@ -1,28 +1,22 @@
-# Feature-Level Fusion using EAST and CRAFT
+# Feature-Level Fusion for Scene Text Detection
 
-# Overview
-This project implements feature-level fusion, an ensemble learning technique, for scene text detection by combining two pretrained models:
+This project implements **feature-level fusion** as an ensemble technique using  
+**EAST** and **CRAFT** text detection models to improve scene text detection performance.
 
-EAST for global text region detection
-CRAFT for character-level text detection
-The goal is to improve robustness by fusing intermediate feature maps instead of relying on a single model.
+## 🔹 Methodology
+- EAST provides fast coarse text region scores
+- CRAFT provides fine-grained character-level confidence maps
+- Both feature maps are **aligned, normalized, and fused at feature level**
+- Fusion is performed using weighted averaging before thresholding
 
-# Dataset
-~ ICDAR 2015 Scene Text Dataset
-~ Evaluation performed on 500 images
+## 🔹 Dataset
+- ICDAR 2015 Scene Text Dataset
+- Evaluation performed on **500 images**
 
-# Method
--Extract text confidence map from EAST
--Extract character region map from CRAFT
--Align and normalize both feature maps
--Fuse features using weighted summation
--Generate final text mask by thresholding
-
-# Evaluation Metrics
-
-Precision
-Recall
-F1-score
+## 🔹 Evaluation Metrics
+- Precision
+- Recall
+- F1-score (ICDAR-style pixel-level evaluation)
 
 # Results (500 Images)
 
